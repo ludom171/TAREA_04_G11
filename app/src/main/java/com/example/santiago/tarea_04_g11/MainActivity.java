@@ -10,8 +10,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -22,19 +25,30 @@ import java.io.OutputStreamWriter;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     String lineatxt,txtcompleto;
+    String datos[];
+    ListView usuario;
+    Button ingresar;
+    Button registro;
+    ArrayAdapter<String> adapter;
+
+    String user;
+    String pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
-        Button ingresar;
-        Button registro;
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         ingresar=(Button)findViewById(R.id.ingresar);
         registro=(Button)findViewById(R.id.registrar);
+
+        usuario=(ListView)findViewById(R.id.listusuario);
+
+        user=(TextView)findViewById(R.id.usuario);
 
 
 
@@ -56,7 +70,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 lineatxt = br.readLine();
                 txtcompleto= "";
 
-
+                while (lineatxt!=null){
+                    txtcompleto=txtcompleto+ lineatxt+";";
+                    datos= txtcompleto.split(";");
+                    lineatxt=br.readLine();
+                }
                 br.close();
                 archivo.close();
                 //contraseña.setText(txtcompleto);
@@ -64,6 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }catch (IOException e){
 
             }
+
+            adapter = new ArrayAdapter<String>(this, R.layout.list_item_usuario, datos);
+
         }
         catch (Exception ex)
         {
@@ -96,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                     if (lineatxt !=null){
+
                         Intent newform = new Intent(MainActivity.this,Lista.class);
                         finish();
                         startActivity(newform);
