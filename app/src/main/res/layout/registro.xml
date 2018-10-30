@@ -118,17 +118,23 @@
                 android:layout_height="wrap_content"
                 android:text="Genero" />
 
-            <RadioButton
-                android:id="@+id/masculino"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Masculino" />
 
-            <RadioButton
-                android:id="@+id/femenino"
+            <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Femenino" />
+                android:layout_height="match_parent">
+                <RadioButton
+                    android:id="@+id/masculino"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Masculino" />
+                <RadioButton
+                    android:id="@+id/femenino"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Femenino" />
+
+            </RadioGroup>
+
 
             <TextView
                 android:id="@+id/textView10"

@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,9 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
 
     String lineatxt;
     String txtcompleto;
+
+
+    RadioButton opc1,opc2;
 
     Button aceptar;
     //declarar spinner
@@ -69,6 +73,11 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         mes=(Spinner)findViewById(R.id.mes);
         anio=(Spinner)findViewById(R.id.anio);
 
+        opc1=(RadioButton)findViewById(R.id.masculino);
+        opc2=(RadioButton)findViewById(R.id.femenino);
+
+
+
         numero=1960;
         //valores spinner dia y mes
         String [] opcdia={"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
@@ -85,8 +94,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         //Image View
         imagen= (ImageView) findViewById(R.id.foto);
 
-
-
         //llenar spiiner con valores generados
         ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opcdia);
         dia.setAdapter(adapter);
@@ -96,7 +103,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
 
         ArrayAdapter <String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, years);
         anio.setAdapter(adapter2);
-
     }
 
 
@@ -116,7 +122,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
             txtcompleto= "";
 
             while (lineatxt !=null){
-                txtcompleto=txtcompleto + ";"+lineatxt ;
+                txtcompleto=txtcompleto + lineatxt ;
                 lineatxt=br.readLine();
             }
             br.close();
@@ -131,9 +137,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
             OutputStreamWriter archivo = new OutputStreamWriter(openFileOutput("meminterna.txt", Activity.MODE_PRIVATE));
             //ValidarFecha();
 
-
-
-            archivo.write(txtcompleto + usuario.getText().toString() + ";" + contraseña.getText().toString() + ";" +nombre.getText().toString() + ";" +apellido.getText().toString() + ";" +correo.getText().toString() + ";" +celular.getText().toString());
+            archivo.write(txtcompleto + usuario.getText().toString() + ";" + contraseña.getText().toString() + ";" +nombre.getText().toString() + ";" +apellido.getText().toString() + ";" +correo.getText().toString() + ";" +celular.getText().toString()+";");
             archivo.flush();
             archivo.close();
         }catch (IOException e){
@@ -144,8 +148,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         finish();
         startActivity(newform);
     }
-
-
 
     //submenu salir
     @Override
@@ -184,6 +186,9 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
             imagen.setImageURI(path);
         }
     }
+
+
+
 
 
 

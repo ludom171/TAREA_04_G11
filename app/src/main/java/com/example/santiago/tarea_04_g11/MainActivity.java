@@ -107,7 +107,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,14 +117,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                     if (lineatxt !=null){
-                        if(user.getText().toString().equals(datos[0]) && pass.getText().toString().equals(datos[1])){
-                            Intent newform = new Intent(MainActivity.this,Lista.class);
-                            finish();
-                            startActivity(newform);
-                        }else{
-                            Toast.makeText(getApplicationContext(),"Usuario / Contraseña Incorrectos",Toast.LENGTH_SHORT).show();
-                        }
+                        int posicion=0;
+                        while(posicion<datos.length){
+                            if(user.getText().toString().equals(datos[posicion]) && pass.getText().toString().equals(datos[posicion+1])){
+                                Intent newform = new Intent(MainActivity.this,Lista.class);
+                                finish();
+                                startActivity(newform);
+                            }else{
+                                Toast.makeText(getApplicationContext(),datos[7],Toast.LENGTH_SHORT).show();
 
+                            }
+                            posicion=posicion+6;
+                        }
                     }else{
                         Toast.makeText(getApplicationContext(),"No existe Registros Disponibles",Toast.LENGTH_SHORT).show();
                     }
@@ -146,7 +149,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(newform);
             }
         });
-
     }
 
     //submenu salir
