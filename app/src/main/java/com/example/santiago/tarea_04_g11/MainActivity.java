@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button registro;
     ArrayAdapter<String> adapter;
 
-    String user;
-    String pass;
+    EditText user;
+    EditText pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         usuario=(ListView)findViewById(R.id.listusuario);
 
-        user=(TextView)findViewById(R.id.usuario);
+        user=(EditText)findViewById(R.id.usuario);
+        pass=(EditText)findViewById(R.id.contraseña);
 
 
 
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             adapter = new ArrayAdapter<String>(this, R.layout.list_item_usuario, datos);
+            usuario.setAdapter(adapter);
 
         }
         catch (Exception ex)
@@ -109,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 try {
                     InputStreamReader archivo = new InputStreamReader(openFileInput("meminterna.txt"));
                     BufferedReader br = new BufferedReader(archivo);
@@ -117,10 +118,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                     if (lineatxt !=null){
+                        if(user.getText().toString().equals(datos[0])){
+                            Intent newform = new Intent(MainActivity.this,Lista.class);
+                            finish();
+                            startActivity(newform);
+                        }else{
+                            Toast.makeText(getApplicationContext(),user.getText().toString(),Toast.LENGTH_SHORT).show();
+                        }
 
-                        Intent newform = new Intent(MainActivity.this,Lista.class);
-                        finish();
-                        startActivity(newform);
                     }else{
                         Toast.makeText(getApplicationContext(),"No existe Registros Disponibles",Toast.LENGTH_SHORT).show();
                     }
