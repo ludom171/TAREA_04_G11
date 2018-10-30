@@ -61,7 +61,7 @@ public class Lista extends AppCompatActivity {
             txtcompleto= "";
 
             while (lineatxt !=null){
-                txtcompleto=txtcompleto + lineatxt + "\n";
+                txtcompleto=txtcompleto + lineatxt ;
                 datos= txtcompleto.split(";");
                 lineatxt=br.readLine();
             }
@@ -81,17 +81,6 @@ public class Lista extends AppCompatActivity {
         expLV =(ExpandableListView)findViewById(R.id.listaexpand);
         listacategoria = new ArrayList<>();
         mapChild = new HashMap<>();
-
-
-
-        ////SUBLISTAS
-
-
-
-
-        // cargarDatos();
-
-
     }
 
     //submenu salir

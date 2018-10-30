@@ -66,8 +66,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         aceptar=(Button)findViewById(R.id.aceptar);
         //inicializar spinner
         dia=(Spinner)findViewById(R.id.dia);
-        dia.setOnItemClickListener((AdapterView.OnItemClickListener) this);
-
         mes=(Spinner)findViewById(R.id.mes);
         anio=(Spinner)findViewById(R.id.anio);
 
@@ -118,7 +116,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
             txtcompleto= "";
 
             while (lineatxt !=null){
-                txtcompleto=txtcompleto + lineatxt + "\n";
+                txtcompleto=txtcompleto + lineatxt ;
                 lineatxt=br.readLine();
             }
             br.close();
@@ -135,7 +133,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
 
 
 
-            archivo.write(txtcompleto + usuario.getText().toString() + ";" + contraseña.getText().toString() + ";" +nombre.getText().toString() + ";" +apellido.getText().toString() + ";" +correo.getText().toString() + ";" +celular.getText().toString()+";");
+            archivo.write(txtcompleto + usuario.getText().toString() + ";" + contraseña.getText().toString() + ";" +nombre.getText().toString() + ";" +apellido.getText().toString() + ";" +correo.getText().toString() + ";" +celular.getText().toString());
             archivo.flush();
             archivo.close();
         }catch (IOException e){
@@ -147,17 +145,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         startActivity(newform);
     }
 
-    private void ValidarFecha(Integer dia, Integer mes, Integer anio) {
-        dia=dia.intValue();
-        mes=mes.intValue();
-        anio=anio.intValue();
 
-        if(anio>=1&&dia<=31){
-            Toast.makeText(this, "es un dia valido",Toast.LENGTH_SHORT).show();
-        }
-
-
-    }
 
     //submenu salir
     @Override

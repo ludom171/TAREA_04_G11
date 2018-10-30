@@ -1,5 +1,6 @@
 package com.example.santiago.tarea_04_g11;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -107,9 +108,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }catch (IOException e){
 
                 }
-
-
-
             }
         });
         registro.setOnClickListener(new View.OnClickListener() {
@@ -144,14 +142,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
-
     public void onClick(View v) {
 
 
     }
-
-
 }
-
