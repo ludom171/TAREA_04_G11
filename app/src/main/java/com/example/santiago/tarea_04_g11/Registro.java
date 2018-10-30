@@ -116,7 +116,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
             txtcompleto= "";
 
             while (lineatxt !=null){
-                txtcompleto=txtcompleto + lineatxt ;
+                txtcompleto=txtcompleto + ";"+lineatxt ;
                 lineatxt=br.readLine();
             }
             br.close();

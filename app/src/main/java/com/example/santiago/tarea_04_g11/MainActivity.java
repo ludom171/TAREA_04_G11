@@ -118,12 +118,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                     if (lineatxt !=null){
-                        if(user.getText().toString().equals(datos[0])){
+                        if(user.getText().toString().equals(datos[0]) && pass.getText().toString().equals(datos[1])){
                             Intent newform = new Intent(MainActivity.this,Lista.class);
                             finish();
                             startActivity(newform);
                         }else{
-                            Toast.makeText(getApplicationContext(),user.getText().toString(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Usuario / Contraseña Incorrectos",Toast.LENGTH_SHORT).show();
                         }
 
                     }else{
