@@ -172,31 +172,31 @@
                 android:text="Asignaturas" />
 
             <CheckBox
-                android:id="@+id/algebra"
+                android:id="@+id/mate1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Algebra" />
 
             <CheckBox
-                android:id="@+id/calculo"
+                android:id="@+id/mate2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Calculo" />
 
             <CheckBox
-                android:id="@+id/fisica"
+                android:id="@+id/mate3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Fisica" />
 
             <CheckBox
-                android:id="@+id/programacion"
+                android:id="@+id/mate4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Programacion" />
 
             <CheckBox
-                android:id="@+id/diseno"
+                android:id="@+id/mate5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Diseño" />

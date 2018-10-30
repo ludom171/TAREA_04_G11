@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -53,6 +54,13 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
     //Cargar Imagen
     ImageView imagen;
 
+    //check Materia
+    CheckBox mat1;
+    CheckBox mat2;
+    CheckBox mat3;
+    CheckBox mat4;
+    CheckBox mat5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -76,7 +84,12 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         opc1=(RadioButton)findViewById(R.id.masculino);
         opc2=(RadioButton)findViewById(R.id.femenino);
 
-
+        //check materias iniciar
+        mat1=(CheckBox)findViewById(R.id.mate1);
+        mat2=(CheckBox)findViewById(R.id.mate2);
+        mat3=(CheckBox)findViewById(R.id.mate3);
+        mat4=(CheckBox)findViewById(R.id.mate4);
+        mat5=(CheckBox)findViewById(R.id.mate5);
 
         numero=1960;
         //valores spinner dia y mes
@@ -110,7 +123,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View v) {
 
     }
-
 
     //metodo guardar datos en fichero txt
     public  void  Guardar(View view){
@@ -186,6 +198,10 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
             imagen.setImageURI(path);
         }
     }
+
+
+    //CheckBox
+
 
 
 
