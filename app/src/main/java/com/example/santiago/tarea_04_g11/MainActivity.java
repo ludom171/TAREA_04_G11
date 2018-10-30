@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     String lineatxt,txtcompleto;
     String datos[];
-    ListView usuario;
+    //ListView usuario;
     Button ingresar;
     Button registro;
     ArrayAdapter<String> adapter;
@@ -37,22 +37,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         ingresar=(Button)findViewById(R.id.ingresar);
         registro=(Button)findViewById(R.id.registrar);
 
-        usuario=(ListView)findViewById(R.id.listusuario);
+        //usuario=(ListView)findViewById(R.id.listusuario);
 
         user=(EditText)findViewById(R.id.usuario);
         pass=(EditText)findViewById(R.id.contraseña);
-
-
-
 
         //Verificacion de archivo
         try
@@ -84,8 +78,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
 
-            adapter = new ArrayAdapter<String>(this, R.layout.list_item_usuario, datos);
-            usuario.setAdapter(adapter);
+            //adapter = new ArrayAdapter<String>(this, R.layout.list_item_usuario, datos);
+            //usuario.setAdapter(adapter);
 
         }
         catch (Exception ex)
@@ -143,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent newform = new Intent(MainActivity.this,Registro.class);
                 finish();
                 startActivity(newform);
