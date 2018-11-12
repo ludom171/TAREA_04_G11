@@ -27,6 +27,8 @@ public class Lista extends AppCompatActivity {
     String lineatxt;
     String txtcompleto;
 
+    //deberCasiCompleto
+
 
     //variables y contenedor listciew
     private ListView lista;
